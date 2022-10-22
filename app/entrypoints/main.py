@@ -5,7 +5,8 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-file_path = os.path.abspath('app/db/db.json')
+file_path = os.path.abspath('../db/db.json')
+print(file_path)
 
 
 @app.get('/')
@@ -22,9 +23,9 @@ async def home(name):
         users = f[0].get('users')
 
     for user in users:
-        if name in user:
+        if name in user.values():
             return user
 
 
 if __name__ == '__main__':
-    uvicorn.run('main:app', host='0.0.0.0', port=8080)
+    uvicorn.run('main:app', host='0.0.0.0', port=8080, debug=True)
