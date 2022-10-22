@@ -5,7 +5,7 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-file_path = os.path.abspath('../db/db.json')
+file_path = os.path.abspath('app/db/db.json')
 
 
 @app.get('/')
