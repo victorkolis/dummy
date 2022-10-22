@@ -8,14 +8,14 @@ app = FastAPI()
 
 @app.get('/')
 async def home():
-    with open('../db.json', 'r') as file:
+    with open('../../db.json', 'r') as file:
         f = json.loads(file.read())
     return f
 
 
 @app.get('/pirata')
 async def home():
-    with open('../db.json', 'r') as file:
+    with open('../../db.json', 'r') as file:
         f = json.loads(file.read())
         users = f[0].get('users')
 
