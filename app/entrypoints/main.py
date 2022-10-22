@@ -1,25 +1,29 @@
 import json
-
+import os
 import uvicorn
 from fastapi import FastAPI
 
 app = FastAPI()
 
+file_path = os.path.abspath('../db/db.json')
+
 
 @app.get('/')
 async def home():
-    with open('../../app/db.json', 'r') as file:
+    with open(file_path, 'r') as file:
         f = json.loads(file.read())
     return f
 
 
-@app.get('/pirata')
-async def home():
-    with open('../../app/db.json', 'r') as file:
+@app.get('/{name}')
+async def home(name):
+    with open(file_path, 'r') as file:
         f = json.loads(file.read())
         users = f[0].get('users')
 
-    return users[0].get('1')
+    for user in users:
+        if name in user:
+            return user
 
 
 if __name__ == '__main__':
