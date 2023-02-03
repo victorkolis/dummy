@@ -11,3 +11,6 @@ sniffio==1.2.0
 starlette==0.19.1
 typing_extensions==4.2.0
 uvicorn==0.18.1
+aiofiles==0.6.0
+python-multipart==0.0.5
+jinja2==2.11.2
